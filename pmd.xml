@@ -15,7 +15,7 @@
             <property name="strictMode" value="true" />
         </properties>
     </rule>
-    <rule ref="category/java/bestpractices.xml/SwitchStmtsShouldHaveDefault" />
+    <rule ref="category/java/bestpractices.xml/NonExhaustiveSwitch" />
     <rule ref="category/java/bestpractices.xml/SystemPrintln" />
     <rule ref="category/java/bestpractices.xml/PrimitiveWrapperInstantiation" />
     <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
@@ -24,8 +24,6 @@
     <rule ref="category/java/bestpractices.xml/UseTryWithResources" />
 
     <rule ref="category/java/codestyle.xml/AvoidDollarSigns" />
-    <rule ref="category/java/codestyle.xml/AvoidProtectedFieldInFinalClass" />
-    <rule ref="category/java/codestyle.xml/AvoidProtectedMethodInFinalClassNotExtending" />
     <rule ref="category/java/codestyle.xml/BooleanGetMethodName">
         <properties>
             <property name="checkParameterizedMethods" value="true" />
@@ -55,17 +53,17 @@
     <rule ref="category/java/design.xml/AvoidThrowingNewInstanceOfSameException" />
     <rule ref="category/java/design.xml/CollapsibleIfStatements" />
     <rule ref="category/java/design.xml/DoNotExtendJavaLangError" />
+    <rule ref="category/java/design.xml/InstantiableUtilityClass" />
     <rule ref="category/java/design.xml/LogicInversion" />
+    <rule ref="category/java/design.xml/ProtectedMemberInFinalClass" />
     <rule ref="category/java/design.xml/SimplifiedTernary" />
     <rule ref="category/java/design.xml/SimplifyBooleanExpressions" />
     <rule ref="category/java/design.xml/SimplifyBooleanReturns" />
     <rule ref="category/java/design.xml/SimplifyConditional" />
-    <rule ref="category/java/design.xml/UseUtilityClass" />
     <rule ref="category/java/errorprone.xml/AvoidAssertAsIdentifier" />
     <rule ref="category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop" />
     <rule ref="category/java/errorprone.xml/AvoidCallingFinalize" />
     <rule ref="category/java/errorprone.xml/AvoidEnumAsIdentifier" />
-    <rule ref="category/java/errorprone.xml/AvoidLosingExceptionInformation" />
     <rule ref="category/java/errorprone.xml/AvoidMultipleUnaryOperators" />
     <rule ref="category/java/errorprone.xml/BrokenNullCheck" />
     <rule ref="category/java/errorprone.xml/ClassCastExceptionWithToArray" />
@@ -74,7 +72,6 @@
     <rule ref="category/java/errorprone.xml/CloneMethodReturnTypeMustMatchClassName" />
     <rule ref="category/java/errorprone.xml/ConstructorCallsOverridableMethod" />
     <rule ref="category/java/errorprone.xml/DoNotExtendJavaLangThrowable" />
-    <rule ref="category/java/errorprone.xml/DontImportSun" />
     <rule ref="category/java/errorprone.xml/EmptyFinalizer" />
     <rule ref="category/java/errorprone.xml/EqualsNull" />
     <rule ref="category/java/errorprone.xml/FinalizeDoesNotCallSuperFinalize" />
@@ -88,7 +85,8 @@
     <rule ref="category/java/errorprone.xml/UnconditionalIfStatement" />
     <rule ref="category/java/errorprone.xml/UnnecessaryBooleanAssertion" />
     <rule ref="category/java/errorprone.xml/UnnecessaryConversionTemporary" />
-    <rule ref="category/java/errorprone.xml/UselessOperationOnImmutable" />
+    <rule ref="category/java/errorprone.xml/UnsupportedJdkApiUsage" />
+    <rule ref="category/java/errorprone.xml/UnusedReturnValue" />
     <rule ref="category/java/multithreading.xml/DoubleCheckedLocking" />
     <rule ref="category/java/multithreading.xml/NonThreadSafeSingleton" />
     <rule ref="category/java/multithreading.xml/UnsynchronizedStaticFormatter" />
