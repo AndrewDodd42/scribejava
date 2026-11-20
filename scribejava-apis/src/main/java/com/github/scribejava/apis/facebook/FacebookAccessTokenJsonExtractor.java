@@ -35,7 +35,7 @@ public class FacebookAccessTokenJsonExtractor extends OAuth2AccessTokenJsonExtra
      */
     @Override
     public void generateError(Response response) throws IOException {
-        final JsonNode errorNode = OAuth2AccessTokenJsonExtractor.OBJECT_MAPPER
+        final JsonNode errorNode = OBJECT_MAPPER
                 .readTree(response.getBody())
                 .get("error");
 

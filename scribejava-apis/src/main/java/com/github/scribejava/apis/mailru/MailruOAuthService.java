@@ -45,9 +45,9 @@ public class MailruOAuthService extends OAuth20Service {
 
                 final StringBuilder urlNew = new StringBuilder();
                 for (Map.Entry<String, String> entry : map.entrySet()) {
-                    urlNew.append(entry.getKey());
-                    urlNew.append('=');
-                    urlNew.append(entry.getValue());
+                    urlNew.append(entry.getKey())
+                          .append('=')
+                          .append(entry.getValue());
                 }
 
                 final String sigSource = URLDecoder.decode(urlNew.toString(), "UTF-8") + clientSecret;
