@@ -40,6 +40,7 @@ public class OpenIdOAuth2AccessToken extends OAuth2AccessToken {
     }
 
     @Override
+    @SuppressWarnings("PMD.SimplifyBooleanReturns")
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
