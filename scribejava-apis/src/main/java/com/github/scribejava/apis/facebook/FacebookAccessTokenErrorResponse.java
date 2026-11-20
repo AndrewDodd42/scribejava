@@ -78,16 +78,10 @@ public class FacebookAccessTokenErrorResponse extends OAuthResponseException {
 
         final FacebookAccessTokenErrorResponse other = (FacebookAccessTokenErrorResponse) obj;
 
-        if (!Objects.equals(errorMessage, other.getErrorMessage())) {
-            return false;
-        }
-        if (!Objects.equals(type, other.getType())) {
-            return false;
-        }
-        if (codeInt != other.getCodeInt()) {
-            return false;
-        }
-        return Objects.equals(fbtraceId, other.getFbtraceId());
+        return Objects.equals(errorMessage, other.getErrorMessage()) &&
+               Objects.equals(type, other.getType()) &&
+               codeInt == other.getCodeInt() &&
+               Objects.equals(fbtraceId, other.getFbtraceId());
     }
 
     @Override

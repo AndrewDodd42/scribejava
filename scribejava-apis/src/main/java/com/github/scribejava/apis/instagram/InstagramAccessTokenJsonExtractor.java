@@ -39,7 +39,7 @@ public class InstagramAccessTokenJsonExtractor extends OAuth2AccessTokenJsonExtr
      */
     @Override
     public void generateError(Response response) throws IOException {
-        final JsonNode errorNode = OAuth2AccessTokenJsonExtractor.OBJECT_MAPPER.readTree(response.getBody());
+        final JsonNode errorNode = OBJECT_MAPPER.readTree(response.getBody());
         final JsonNode error = errorNode.get("error");
         if (error != null) {
             FacebookAccessTokenJsonExtractor.instance().generateError(response);
