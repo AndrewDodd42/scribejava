@@ -21,15 +21,7 @@ public class Java8Base64 extends Base64 {
             encoder = type.getConstructor().newInstance();
             encode = type.getMethod("internalEncode", byte[].class);
             encodeUrlWithoutPadding = type.getMethod("internalEncodeUrlWithoutPadding", byte[].class);
-        } catch (final ClassNotFoundException ex) {
-            encoder = null;
-            encode = null;
-            encodeUrlWithoutPadding = null;
-        } catch (final ReflectiveOperationException ex) {
-            encoder = null;
-            encode = null;
-            encodeUrlWithoutPadding = null;
-        } catch (final LinkageError ex) {
+        } catch (final ReflectiveOperationException|LinkageError ex) {
             encoder = null;
             encode = null;
             encodeUrlWithoutPadding = null;
