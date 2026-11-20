@@ -8,7 +8,11 @@ public class CommonsCodecBase64 extends Base64 {
     static {
         if (isAvailable()) {
             BASE64_ENCODER = new org.apache.commons.codec.binary.Base64();
-            BASE64_URL_ENCODER_WITHOUT_PADDING = new org.apache.commons.codec.binary.Base64(0, null, true);
+            BASE64_URL_ENCODER_WITHOUT_PADDING = org.apache.commons.codec.binary.Base64.builder()
+                .setLineLength(0)
+                .setLineSeparator()
+                .setUrlSafe(true)
+                .get();
         } else {
             BASE64_ENCODER = null;
             BASE64_URL_ENCODER_WITHOUT_PADDING = null;
