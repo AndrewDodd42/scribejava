@@ -31,6 +31,7 @@ import static org.junit.Assert.fail;
 public class ApacheHttpClientReactorDeathTest {
 
     @Test
+    @SuppressWarnings("PMD.UseTryWithResources")
     public void outstandingRequestFailsWhenIoReactorStops() throws Exception {
         final ReactorDiesClient raw = new ReactorDiesClient();
         final ApacheHttpClient http = new ApacheHttpClient(raw);

@@ -40,14 +40,12 @@ public class ArmeriaHttpClientNullBodyContentTypeTest {
         final MockWebServer server = new MockWebServer();
         server.enqueue(new MockResponse());
         server.start();
-        final ArmeriaHttpClient client = new ArmeriaHttpClient();
-        try {
+        try (ArmeriaHttpClient client = new ArmeriaHttpClient()) {
             final Map<String, String> headers = new HashMap<String, String>();
             headers.put(HttpClient.CONTENT_TYPE, "application/json");
             client.execute(null, headers, Verb.DELETE, server.url("/empty").toString(), (String) null).close();
             assertEquals("application/json", server.takeRequest().getHeader(HttpClient.CONTENT_TYPE));
         } finally {
-            client.close();
             server.shutdown();
         }
     }
@@ -57,15 +55,13 @@ public class ArmeriaHttpClientNullBodyContentTypeTest {
         final MockWebServer server = new MockWebServer();
         server.enqueue(new MockResponse());
         server.start();
-        final ArmeriaHttpClient client = new ArmeriaHttpClient();
-        try {
+        try (ArmeriaHttpClient client = new ArmeriaHttpClient()) {
             client.execute(null, Collections.<String, String>emptyMap(), Verb.POST, server.url("/body").toString(),
                     "grant_type=client_credentials").close();
             final RecordedRequest recorded = server.takeRequest();
             assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recorded.getHeader(HttpClient.CONTENT_TYPE));
             assertEquals("grant_type=client_credentials", recorded.getBody().readUtf8());
         } finally {
-            client.close();
             server.shutdown();
         }
     }
@@ -74,14 +70,12 @@ public class ArmeriaHttpClientNullBodyContentTypeTest {
         final MockWebServer server = new MockWebServer();
         server.enqueue(new MockResponse());
         server.start();
-        final ArmeriaHttpClient client = new ArmeriaHttpClient();
-        try {
+        try (ArmeriaHttpClient client = new ArmeriaHttpClient()) {
             request.send(client, server.url("/empty").toString());
             final RecordedRequest recorded = server.takeRequest();
             assertEquals("DELETE", recorded.getMethod());
             assertNull(recorded.getHeader(HttpClient.CONTENT_TYPE));
         } finally {
-            client.close();
             server.shutdown();
         }
     }

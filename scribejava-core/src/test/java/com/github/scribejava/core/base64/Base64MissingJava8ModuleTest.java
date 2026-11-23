@@ -23,16 +23,13 @@ public class Base64MissingJava8ModuleTest {
             }
         };
         final URL classes = new File("target/classes").toURI().toURL();
-        final URLClassLoader isolated = new URLClassLoader(new URL[]{classes}, hidden);
-        try {
+        try (URLClassLoader isolated = new URLClassLoader(new URL[]{classes}, hidden)) {
             final Class<?> base64 = isolated.loadClass("com.github.scribejava.core.base64.Base64");
             final String encoded = (String) base64.getMethod("encode", byte[].class)
                     .invoke(null, "Hello World".getBytes("UTF-8"));
             assertEquals("SGVsbG8gV29ybGQ=", encoded);
             final Object instance = base64.getMethod("getInstance").invoke(null);
             assertFalse(instance.getClass().getName().endsWith("Java8Base64"));
-        } finally {
-            isolated.close();
         }
     }
 }

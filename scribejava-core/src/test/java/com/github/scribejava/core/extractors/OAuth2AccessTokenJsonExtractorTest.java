@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
 import org.junit.function.ThrowingRunnable;
 
@@ -102,9 +103,9 @@ public class OAuth2AccessTokenJsonExtractorTest {
                     extractor.extract(response);
                 }
             });
-            assertEquals(null, error.getError());
-            assertEquals(null, error.getErrorDescription());
-            assertEquals(null, error.getErrorUri());
+            assertNull(error.getError());
+            assertNull(error.getErrorDescription());
+            assertNull(error.getErrorUri());
         }
     }
 
